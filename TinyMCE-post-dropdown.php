@@ -11,9 +11,11 @@
  
 function TMCEBB_dropdown_css() {
 	wp_enqueue_style('TMCEBB_dropdown_css', plugins_url('/style.css', __FILE__));
+	wp_enqueue_script( 'jquery' );
 }
 
 add_action('admin_enqueue_scripts', 'TMCEBB_dropdown_css');
+add_action('admin_enqueue_scripts', 'jquery');
 
 add_action( 'admin_head', 'TMCEBB_dropdown_add_tinymce' );
 function TMCEBB_dropdown_add_tinymce() {
@@ -43,7 +45,7 @@ function TMCEBB_dropdown_add_tinymce_button( $buttons ) {
     // Print all buttons
     //var_dump( $buttons );
     //query posts and then send to javascript.
-    $query = new WP_Query( 'post_type=page', 'nopaging=true' );
+    $query = new WP_Query( 'post_type=post', 'nopaging=true' );
     $params = array();
     foreach($query->posts as $post) {
 		$params[] = array('ID' => $post->ID, 'post_title' => $post->post_title);
@@ -59,15 +61,14 @@ TMCEBB_URL_dropdown_key
 //function to output shortcode
 function TMCEBB_dropdown_display_link($atts) {
 	@extract($atts);
-	$title;
-	$url;
-	if(stripos($url, 'http') === FALSE) {
-		$url = 'http://' . $url;
-	}
-	$tempLink = "<a class=\"btn btn-primary\" title=\"$title\" href=\"$url\" target='_blank'>$title</a>";
+	$postnumber;
+	//get post
+	$post = get_post($postnumber);
+	//var_dump($post);
+	$tempLink = "<h2>$post->post_title</h2><span>$post->post_content</span>";
 	
 	return $tempLink;
 }
 
-add_shortcode('button', 'TMCEBB_dropdown_display_link');
+add_shortcode('dropdown', 'TMCEBB_dropdown_display_link');
 ?>

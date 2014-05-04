@@ -1,9 +1,8 @@
 function TMCEBB_draw_button() {
-	 console.log(dropDownParams);
+	 var attr = [];
 	 for(var i in dropDownParams) {
-	 	//var attr[] = [{text: dropDownParams[i]['post_title'], value: dropDownParams[i]['ID']}];
+	 	attr.push({text: dropDownParams[i].post_title, value: dropDownParams[i].ID});
 	 }
-	 console.log(attr);
     tinymce.PluginManager.add( 'TMCEBB_dropdown_button', function( editor, url ) {
         // Add a button that opens a window and adds a URL
         editor.addButton( 'TMCEBB_dropdown_shortcode_key', {
@@ -20,16 +19,13 @@ function TMCEBB_draw_button() {
                     		type: 'listbox',
                     		name: 'post',
                     		label: 'Select a Post',
-                    		'values': [
-                    			{text: 'post title1', value: 'post number1'},
-                    			{text: 'post title2', value: 'post number2'}
-                    		]
+                    		'values': attr
                     }
                     ],
                     onsubmit: function( e ) {
                         // Insert content when the window form is submitted
-                        editor.insertContent( '[button title=\''+e.data.title+'\' url=\''+e.data.url+'\']' );
-                        //[button title='title' url='url']
+                        editor.insertContent( '[dropdown postnumber=\''+e.data.post+'\']' );
+                        //[dropdown postnumber='ID']
                     }
                 } );
             }
