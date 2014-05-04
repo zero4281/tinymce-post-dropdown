@@ -1,0 +1,19 @@
+{
+  "name": "zero4281/TinyMCE-post-dopdown",
+  "type": "wordpress-plugin",
+  "description": "A plugin to add a custom button and shortcode to TinyMCE in Wordpress 3.9.",
+  "homepage": "https://github.com/zero4281/TinyMCE-post-dropdown",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joshua Rising",
+      "email": "zero4281@gmail.com",
+      "homepage": "https://github.com/zero4281/",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.0"
+  }
+}

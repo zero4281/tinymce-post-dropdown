@@ -1,2 +1,2 @@
-tinymce-post-shortcode
+tinymce-post-dropdown
 ======================
