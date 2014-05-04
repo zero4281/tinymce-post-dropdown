@@ -11,7 +11,7 @@
  
 function TMCEBB_dropdown_css() {
 	wp_enqueue_style('TMCEBB_dropdown_css', plugins_url('/style.css', __FILE__));
-	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js');
+	//wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js');
 	wp_enqueue_script( 'jquery' );
 }
 
