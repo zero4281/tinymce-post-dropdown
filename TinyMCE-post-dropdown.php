@@ -60,12 +60,10 @@ TMCEPD_URL_dropdown_key
 function TMCEPD_dropdown_display($atts) {
 	@extract($atts);
 	$postnumber;
+	
 	//get post contents
 	$query = new WP_Query( "p=$postnumber", 'post_type=post', 'nopaging=true' );
 	
-	echo "\n<!-- DEBUG\n";
-	print_r($query->post);
-	echo "\n-->\n";
 	$title = $query->post->post_title;
 	$content = $query->post->post_content;
 	
