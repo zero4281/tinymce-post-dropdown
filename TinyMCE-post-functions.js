@@ -8,7 +8,7 @@ function TMCEPD_draw_button() {
         editor.addButton( 'TMCEPD_dropdown_shortcode_key', {
         		
             //text: 'Button',
-            icon: 'dashicons icon-link',
+            icon: 'dashicons dashicons-editor-insertmore', //<div class="dashicons dashicons-editor-insertmore"></div>
             //icon: false,
             onclick: function() {
                 // Open window
