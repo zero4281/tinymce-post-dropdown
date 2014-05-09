@@ -1,11 +1,11 @@
-function TMCEBB_draw_button() {
+function TMCEPD_draw_button() {
 	 var attr = [];
 	 for(var i in dropDownParams) {
-	 	attr.push({text: dropDownParams[i].post_title, value: dropDownParams[i].ID});
+	 	attr[i] = {text: dropDownParams[i]['post_title'], value: dropDownParams[i]['ID']};
 	 }
-    tinymce.PluginManager.add( 'TMCEBB_dropdown_button', function( editor, url ) {
+    tinymce.PluginManager.add( 'TMCEPD_dropdown_button', function( editor, url ) {
         // Add a button that opens a window and adds a URL
-        editor.addButton( 'TMCEBB_dropdown_shortcode_key', {
+        editor.addButton( 'TMCEPD_dropdown_shortcode_key', {
         		
             //text: 'Button',
             icon: 'dashicons icon-link',
@@ -13,7 +13,7 @@ function TMCEBB_draw_button() {
             onclick: function() {
                 // Open window
                 editor.windowManager.open( {
-                    title: 'Bootstrap Button Shortcode',
+                    title: 'TinyMCE Post Dropdown Shortcode',
                     body: [
                     {
                     		type: 'listbox',
@@ -24,8 +24,7 @@ function TMCEBB_draw_button() {
                     ],
                     onsubmit: function( e ) {
                         // Insert content when the window form is submitted
-                        editor.insertContent( '[dropdown postnumber=\''+e.data.post+'\']' );
-                        //[dropdown postnumber='ID']
+                        editor.insertContent( '[tinypost postnumber=\''+e.data.post+'\']' );
                     }
                 } );
             }

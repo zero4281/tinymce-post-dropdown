@@ -1,4 +1,4 @@
 
 ( function() {
-	TMCEBB_draw_button();
+	TMCEPD_draw_button();
 } )();
